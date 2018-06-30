@@ -1,0 +1,25 @@
+Book:
+  type: entity
+  repositoryClass: App\Library\Infrastructure\Repository\BookRepository
+  table: books
+  indexes:
+    author_index:
+      columns: [ author ]
+    id:
+      type: uuid
+      generator:
+          strategy: CUSTOM
+      customIdGenerator:
+          class: Ramsey\Uuid\Doctrine\UuidGenerator
+  fields:
+    title:
+      type: string
+      length: 50
+    image:
+      type: string
+      length: 100
+    author:
+      type: string
+      length: 50
+    price:
+      type: float

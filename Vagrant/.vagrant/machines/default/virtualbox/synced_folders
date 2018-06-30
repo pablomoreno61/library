@@ -1,0 +1,1 @@
+{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"/home/pablo/workspace/zeelo/Vagrant","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}},"virtualbox":{"/var/www/zeelo/current":{"guestpath":"/var/www/zeelo/current","hostpath":"/home/pablo/workspace/zeelo","disabled":false,"__vagrantfile":true}}}
