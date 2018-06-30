@@ -22,8 +22,4 @@ yarn-error.log
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
 
-###> vagrant ###
-/.vagrant
-###< vagrant ###
-
 /.idea
