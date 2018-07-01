@@ -65,19 +65,20 @@ Example:
 
 **Issues**
 
-I've tried to decouple php entities from its database definition but it was not possible, I could'nt make it work, so I had
-to use annotations. Xml or yaml entities should be used for the entity definition.
+I've tried to decouple php entities from its database definition because I prefer to use Xml or yaml entities for the entity definition, but it was not possible, I could'nt make it work, so I had
+to use annotations.
 
 A deprecation warning is launched with unit tests, without affecting its results, but it's annoying. Tried to fix it but without success.
 
 **Improvements**
 
-VM should be setup using Ansible, so no needs to remember or clone the original machine. Also it will be necessary for migration plans or VCS of the machine changes.
+VM should be configured using Ansible, so no needs to remember or clone the original machine. Also it would be necessary for migration plans or VCS of the machine changes.
 
-As this is a small project and only for DEV purpose, the usage of events has not been implemented, neither CQRS. In a bigger project,
+As this is a small project and only for DEV purpose, the usage of events has not been implemented, neither CQRS. In a bigger project with higher traffic,
 an event could be thrown when CreateBookUseCase ends, throwing an event to a RabbitMQ queue, notifying that a new book has been entered.
 
-CQRS could be implemented too, separating commands from queries, pre-loading a list of books after every creation book event.
+CQRS could be implemented too, separating commands from queries, pre-loading a list of books after every creation book event. The GetBooksUseCase
+would have a great impact on its performance.
 
 Both unit test and integration tests are launched together, it would be recommended to separate them, in orther to execute fast unit tests
 in dev machines, and integration tests inside a pipe line in Jenkins every time the code is pushed to the repository.
@@ -85,11 +86,11 @@ in dev machines, and integration tests inside a pipe line in Jenkins every time 
 About integration tests, I've used an SQLite database with fake data, but a SQLite in memory database should be recommended,
 loading fixtures instead of reading and writing directly to the data.db file.
  
-Another aproach could be using directly MariaDB for the integration tests, so it would become
+Another approach could be using directly MariaDB for the integration tests, so it would become
 a more real scenario.
 
 Token authentication using oAuth2 should be used for production environments, so we can be sure
-to stablish secured stateless connections between client-server.
+to establish secured stateless connections between client-server.
 
 **Application deploy**
 
@@ -138,9 +139,9 @@ PHPUnit 6.5.8 by Sebastian Bergmann and contributors.
 Testing Project Test Suite
 .......                                                             7 / 7 (100%)
 
-Time: 8.29 seconds, Memory: 36.25MB
+Time: 8.44 seconds, Memory: 36.25MB
 
-OK (7 tests, 19 assertions)
+OK (9 tests, 29 assertions)
 ```
 
 **Credentials**
