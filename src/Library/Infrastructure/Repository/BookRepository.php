@@ -3,13 +3,13 @@
 namespace App\Library\Infrastructure\Repository;
 
 use App\Library\Domain\Entity\Book;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Symfony\Bridge\Doctrine\RegistryInterface;
 use App\Library\Domain\Repository\BookRepository as BookRepositoryInterface;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Persistence\ManagerRegistry;
 
 class BookRepository extends ServiceEntityRepository implements BookRepositoryInterface
 {
-    public function __construct(RegistryInterface $registry)
+    public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Book::class);
     }

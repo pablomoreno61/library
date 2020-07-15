@@ -18,4 +18,14 @@ class BookListItem
         $this->title = $title;
         $this->link = self::ITEM_URL . $this->id;
     }
+
+    public function title()
+    {
+        return $this->title;
+    }
+
+    public function link()
+    {
+        return $this->link;
+    }
 }

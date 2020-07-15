@@ -97,22 +97,29 @@ to establish secured stateless connections between client-server.
 There is vagrant file inside the Vagrant folder, so after executing "vagrant up" command and entering into the machine,
 follow these steps for a basic configuration:
 
-- yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-- yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
-- yum-config-manager --enable remi-php72
-- yum install yum-utils php php-mcrypt php-cli php-gd php-curl php-mysql php-ldap php-zip php-fileinfo php-xml wget mariadb-server.x86_64
-- yum -y update
+- sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+- sudo yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+- sudo yum-config-manager --enable remi-php72
+- sudo yum install yum-utils php php-mcrypt php-cli php-gd php-curl php-mysql php-ldap php-zip php-fileinfo php-xml wget mariadb-server.x86_64 unzip
+- sudo yum -y update
 
 Enable mariadb database:
 
-- systemctl enable mariadb
-- systemctl start mariadb
+- sudo systemctl enable mariadb
+- sudo systemctl start mariadb
 
 Once inside the VM, go to the project folder "/var/www/library/current" and execute composer:
 
 - curl -sS https://getcomposer.org/installer | php
 - mv composer.phar /usr/local/bin/composer
 - composer install
+
+- wget https://get.symfony.com/cli/installer -O - | bash
+- export PATH="$HOME/.symfony/bin:$PATH"
+
+- mysql -u root
+- CREATE DATABASE IF NOT EXISTS bookstore;
+- GRANT ALL PRIVILEGES ON bookstore.* TO 'librarian'@'localhost' IDENTIFIED BY '123456';
 
 **Server running**
 
